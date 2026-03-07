@@ -1,0 +1,37 @@
+* {
+    /* `otf-font-awesome` is required to be installed for icons */
+    font-family: 'Ubuntu Regular';
+    font-size: 13px;
+    color: #ebdbb2;
+}
+
+window#waybar {
+    background-color: rgba(60, 56, 54, 0.5);
+    color: #ebdbb2;
+    transition-property: background-color;
+    transition-duration: .5s;
+}
+
+window#waybar.hidden {
+    opacity: 0.2;
+}
+/* Sem všechny moduly */
+#wireplumber,
+#network,
+#bluetooth,
+#memory,
+#battery,
+#clock {
+    padding: 0 1px;
+    color:  #ebdbb2;
+}
+
+/* Using steps() instead of linear as a timing function to limit cpu usage */
+#battery.critical:not(.charging) {
+    background-color: #fb4934;
+    animation-name: blink;
+    animation-duration: 0.5s;
+    animation-timing-function: steps(12);
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}

@@ -1,0 +1,68 @@
+{
+  "logo": {
+    "type": "kitty-direct",
+    "source": "$HOME/.config/fastfetch/logo.png",
+    "width": 22,
+    "height": 10,
+    "padding": {
+      "top": 1,
+      "left": 3
+    }
+  },
+  "display": {
+    "separator": " > "
+  },
+  "modules": [
+    {
+      "type": "title",
+      "key": "",
+      "format": "{user-name-colored}@{host-name-colored}"
+    },
+    {
+      "type": "custom",
+      "format": ""
+    },
+    // Software
+    {
+      "type": "os",
+      "key": ""
+    },
+    {
+      "type": "kernel",
+      "key": ""
+    },
+    {
+      "type": "wm",
+      "key": ""
+    },
+    {
+      "type": "packages",
+      "key": ""
+    },
+    {
+      "type": "custom",
+      "format": ""
+    },
+    // Hardware
+    {
+      "type": "host",
+      "key": "󰌢"
+    },
+    {
+      "type": "cpu",
+      "key": ""
+    },
+    {
+      "type": "gpu",
+      "key": ""
+    },
+    {
+      "type": "memory",
+      "key": ""
+    },
+    {
+      "type": "custom",
+      "format": ""
+    }
+  ]
+}
