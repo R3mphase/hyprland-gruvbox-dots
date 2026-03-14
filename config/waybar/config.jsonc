@@ -41,7 +41,7 @@
         "tooltip-format": "Rofi Menu"
     },
     "custom/wallpaper": {
-        "on-click": "kitty $(echo changeWall.sh)",
+        "on-click": "kitty $(echo bash $HOME/.config/hypr/changeWall.sh)",
         "format": "  󰟪  ",
         "tooltip": true,
         "tooltip-format": "Wallpaper Changer"
