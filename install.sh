@@ -23,9 +23,7 @@ set -e
 echo -e "${CYAN}Do you want to delete install files after installing?${ENDCOLOR} (${GREEN}Y${ENDCOLOR}/n)"
 read delete
 
-cd fonts
 wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.zip
-cd ..
 
 # Select to move / copy the install files
 if [[ -z "$delete" || "$delete" == "y" || "$delete" == "Y" ]]; then
@@ -89,7 +87,7 @@ if [[ -z "$delete" || "$delete" == "y" || "$delete" == "Y" ]]; then
 	fi
 
 	echo -e "${CYAN}Moving fonts...${ENDCOLOR}"
-	mv "$workingDir/fonts/JetBrainsMono.zip" "$fontsDir/"
+	mv "$workingDir/JetBrainsMono.zip" "$fontsDir/"
 	echo -e "${GREEN}Done!${ENDCOLOR}"
 
 	echo -e "${CYAN}Unziping fonts...${ENDCOLOR}"
@@ -159,7 +157,7 @@ else
 	fi
 
 	echo -e "${CYAN}Copying fonts...${ENDCOLOR}"
-	cp "$workingDir/fonts/JetBrainsMono.zip" "$fontsDir/"
+	cp "$workingDir/JetBrainsMono.zip" "$fontsDir/"
 	echo -e "${GREEN}Done!${ENDCOLOR}"
 
 	echo -e "${CYAN}Unziping fonts...${ENDCOLOR}"
