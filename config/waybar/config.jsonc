@@ -1,13 +1,13 @@
 // -*- mode: jsonc -*-
 {
-// -------------------- POSITION -------------------- //
+// ----- Position ----- //
     "position": "top",
     "height": 30,
     "margin-top": 5,
     "margin-bottom": 5,
     "spacing": 4,
 
-// -------------------- MODULES -------------------- //
+// ----- Modules ----- //
     "modules-left": [
         "custom/poweroptions",
         "custom/menu",
@@ -23,13 +23,14 @@
         "bluetooth",
         "memory",
         "battery",
+        "power-profiles-daemon",
         "clock"
     ],
 
-// -------------------- MODULES CONFIG -------------------- //
+// ----- Modules Config ----- //
     // Left Side
     "custom/poweroptions": {
-        "on-click": "wlogout",
+        "on-click": "wlogout -b 4",
         "format": "  󰐥  ",
         "tooltip": true,
         "tooltip-format": "Logout Menu"
@@ -41,7 +42,7 @@
         "tooltip-format": "Rofi Menu"
     },
     "custom/wallpaper": {
-        "on-click": "kitty $(echo bash $HOME/.config/hypr/changeWall.sh)",
+        "on-click": "kitty $(echo changeWall.sh)",
         "format": "  󰟪  ",
         "tooltip": true,
         "tooltip-format": "Wallpaper Changer"
@@ -85,7 +86,7 @@
         "tooltip-format": "blueman"
     },
     "memory": {
-        "format": "  {used}GiB   ",
+        "format": " {used}GiB   ",
         "on-click": "kitty $(echo 'htop')",
         "tooltip": true,
         "tooltip-format": "htop"
@@ -95,7 +96,7 @@
             "warning": 25,
             "critical": 15
         },
-        "format": "  {capacity}% {icon}",
+        "format": " {capacity}% {icon} ",
         "format-icons": {
             "default": [" ", " ", " ", " ", " "],
             "charging": [" ", " ", " ", " ", " "]
@@ -103,7 +104,30 @@
         "tooltip": true,
         "tooltip-format": "{timeTo}"
     },
+    "power-profiles-daemon": {
+        "format": "{icon} ",
+        "tooltip-format": "{profile}\n{driver}",
+        "tooltip": true,
+        "format-icons": {
+            "default": "",
+            "performance": "",
+            "balanced": "",
+            "power-saver": ""
+        }
+    },
     "clock": {
-        "format": "  {:%H:%M | %d-%m}    "
+        "format": " {:%H:%M | %d-%m}    ",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+            "mode"          : "months",
+            "weeks-pos"     : "right",
+            "format": {
+                "months":     "<span color='#ebdbb2'><b>{}</b></span>",
+                "days":       "<span color='#ebdbb2'><b>{}</b></span>",
+                "weeks":      "<span color='#fabd2f'><b>W{}</b></span>",
+                "weekdays":   "<span color='#fabd2f'><b>{}</b></span>",
+                "today":      "<span color='#cc241d'><b><u>{}</u></b></span>"
+            }
+        }
     }
 }

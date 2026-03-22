@@ -18,7 +18,7 @@ window {
 
 button {
     border-radius: 1;
-    border-color: rgb(235, 219, 178);
+    border-color: #ebdbb2;
     border-radius: 10px;
 	text-decoration-color: #a89984;
     color: #a89984;
@@ -27,27 +27,28 @@ button {
 	border-width: 1px;
 	background-repeat: no-repeat;
 	background-position: center;
-	background-size: 25%;
+	background-size: 30%;
 	margin: 5px;
 }
 
 button:focus, button:active, button:hover {
 	background-color: rgba(235, 219, 178, 0.4);
+	color: #282828;
 	outline-style: none;
 }
 
 #lock {
-    background-image: image(url("/usr/share/wlogout/icons/lock.png"), url("/usr/local/share/wlogout/icons/lock.png"));
+    background-image: image(url("images/lock-white.png"));
 }
 
 #logout {
-    background-image: image(url("/usr/share/wlogout/icons/logout.png"), url("/usr/local/share/wlogout/icons/logout.png"));
+    background-image: image(url("images/logout-white.png"));
 }
 
 #shutdown {
-    background-image: image(url("/usr/share/wlogout/icons/shutdown.png"), url("/usr/local/share/wlogout/icons/shutdown.png"));
+    background-image: image(url("images/shutdown-white.png"));
 }
 
 #reboot {
-    background-image: image(url("/usr/share/wlogout/icons/reboot.png"), url("/usr/local/share/wlogout/icons/reboot.png"));
+    background-image: image(url("images/reboot-white.png"));
 }

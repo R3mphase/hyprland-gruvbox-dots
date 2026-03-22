@@ -6,6 +6,7 @@
 configDir="$HOME/.config"
 iconsDir="$HOME/.icons"
 themesDir="$HOME/.themes"
+fontsDir="$HOME/.local/share/fonts"
 workingDir=$(pwd)
 # Colors
 ENDCOLOR="\e[0m"
@@ -76,6 +77,22 @@ if [[ -z "$delete" || "$delete" == "y" || "$delete" == "Y" ]]; then
 	rm "$themesDir/gruvbox-dark.tar.xz"
 	echo -e "${GREEN}Done!${ENDCOLOR}"
 
+	# ----- Move fonts -----
+	if [ ! -d "$fontsDir" ]; then
+		echo -e "${CYAN}Creating .local/share/fonts directory${ENDCOLOR}"
+		mkdir "$fontsDir"
+		echo -e "${GREEN}Done!${ENDCOLOR}"
+	fi
+
+	echo -e "${CYAN}Moving fonts...${ENDCOLOR}"
+	mv "$workingDir/fonts/JetBrainsMono.zip" "$fontsDir/"
+	echo -e "${GREEN}Done!${ENDCOLOR}"
+
+	echo -e "${CYAN}Unziping fonts...${ENDCOLOR}"
+	unzip "$fontsDir/JetBrainsMono.zip" -d "$fontsDir"
+	rm "$fontsDir/JetBrainsMono.zip"
+	echo -e "${GREEN}Done!${ENDCOLOR}"
+
 	echo -e "${CYAN}Everything has been ${GREEN}moved${CYAN}!${ENDCOLOR}"
 else
 	# ----- Copy .config files -----
@@ -129,7 +146,23 @@ else
 	tar -xJf "$themesDir/gruvbox-dark.tar.xz" -C "$themesDir"
 	rm "$themesDir/gruvbox-dark.tar.xz"
 	echo -e "${GREEN}Done!${ENDCOLOR}"
-	
+
+	# ----- Copy fonts -----
+	if [ ! -d "$fontsDir" ]; then
+		echo -e "${CYAN}Creating .local/share/fonts directory${ENDCOLOR}"
+		mkdir "$fontsDir"
+		echo -e "${GREEN}Done!${ENDCOLOR}"
+	fi
+
+	echo -e "${CYAN}Copying fonts...${ENDCOLOR}"
+	cp "$workingDir/fonts/JetBrainsMono.zip" "$fontsDir/"
+	echo -e "${GREEN}Done!${ENDCOLOR}"
+
+	echo -e "${CYAN}Unziping fonts...${ENDCOLOR}"
+	unzip "$fontsDir/JetBrainsMono.zip" -d "$fontsDir"
+	rm "$fontsDir/JetBrainsMono.zip"
+	echo -e "${GREEN}Done!${ENDCOLOR}"
+
 	echo -e "${CYAN}Everything has been ${GREEN}copied${CYAN}!${ENDCOLOR}"
 fi
 
