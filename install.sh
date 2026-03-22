@@ -23,6 +23,10 @@ set -e
 echo -e "${CYAN}Do you want to delete install files after installing?${ENDCOLOR} (${GREEN}Y${ENDCOLOR}/n)"
 read delete
 
+cd fonts
+wget https://github.com/ryanoasis/nerd-fonts/releases/download/v3.1.1/JetBrainsMono.zip
+cd ..
+
 # Select to move / copy the install files
 if [[ -z "$delete" || "$delete" == "y" || "$delete" == "Y" ]]; then
 	# ----- Move .config files -----
